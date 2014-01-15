@@ -1,4 +1,4 @@
-from __future__ import absolute_import, print_function
+
 import sys
 
 from celery.bin.celery import CeleryCommand

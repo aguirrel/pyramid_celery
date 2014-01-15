@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 from pyramid_celery.commands import CommandMixin
 try:

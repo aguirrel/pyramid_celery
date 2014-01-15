@@ -45,7 +45,7 @@ def convert_celery_options(config):
     Converts celery options to apropriate types
     """
 
-    for key, value in config.iteritems():
+    for key, value in config.items():
         opt_type = OPTIONS.get(key)
         if opt_type:
             if opt_type[0] == str:
@@ -65,7 +65,7 @@ def includeme(config):
     celery.add_defaults(config.registry.settings)
     # delete cached property in order to get them reloaded from the new conf
     del(celery.backend)
-    for name, task in registry.tasks.items():
+    for name, task in list(registry.tasks.items()):
         # ensure that every already registed tasks doens use an unconfigured
         # backend.
         task.backend = celery.backend
